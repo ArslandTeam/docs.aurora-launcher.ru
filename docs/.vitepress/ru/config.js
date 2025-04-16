@@ -15,6 +15,7 @@ export const ru = {
         lastUpdated: {
             text: "Последнее обновление",
         },
+        darkModeSwitchLabel: "Тема",
         lightModeSwitchTitle: "Переключить на светлую тему",
         darkModeSwitchTitle: "Переключить на тёмную тему",
         sidebarMenuLabel: "Меню",
