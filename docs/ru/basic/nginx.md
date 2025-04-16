@@ -79,7 +79,7 @@ server {
     }
 }
 ```
-```nginx [Без домена]
+```nginx [IPv4]
 upstream ws-launcher {
     server 127.0.0.1:1370;
 }

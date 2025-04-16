@@ -32,23 +32,23 @@ pm2 save
 
 ## Запуск через `systemd`
 
-Создаём файл конфигурации сервиса и при необходимости меняем настройки:
-```sh
-sudo nano /etc/systemd/system/launcher.service
-```
 Создаём отдельного юзера для управления Launcher Server:
 ```sh
-adduser launchserver --no-create-home --gecos ""
+adduser launchserver --system --group
 ```
 Чтобы все работало корректно, вам потребуется выдать юзеру права на папку:
 ```sh
 sudo chown launchserver:launchserver Путь до вашей папки с Launcher Server
 ```
+Создаём файл конфигурации сервиса и при необходимости меняем настройки:
+```sh
+sudo nano /etc/systemd/system/launcher.service
+```
 
 Само содержимое файла:
 ```systemd [launcher.service]
 [Unit]
-Description=launcher Server
+Description=LauncherServer
 
 [Service]
 # Укажите путь где у вас размещён Launcher Server

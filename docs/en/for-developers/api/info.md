@@ -9,6 +9,52 @@ Information about the library and the protocol used can be found [here](https://
 
 Below are the API methods available for use in the launcher.
 
+## Similarities and differences with JSON-RPC
+
+The Aurora RPC protocol is based on the JSON-RPC 2.0 standard. It implements a similar request and response structure, except for the absence of the `jsonrpc` parameter:
+
+```ts
+interface Request {
+  id?: number | string; // Not required for notifications
+  method: string;
+  params?: object | array; // Not required for notifications
+}
+
+interface Response {
+  id: number | string;
+  result: object | array;
+}
+```
+
+When returning an error, the following type is used:
+
+```ts
+interface ResponseError {
+  id: number | string;
+  error: {
+    code: number;
+    message: string;
+  };
+}
+```
+
+The error codes correspond to those used in JSON-RPC:
+
+::: warning
+Error codes from -32768 to -32000 inclusive are reserved for previously defined errors. Any code in this range, but not explicitly defined below, is reserved for future use.
+:::
+
+| Код    | Сообщение        | Значение                                                                                   |
+| ------ | ---------------- | ------------------------------------------------------------------------------------------ |
+| -32700 | Parse error      | The server received invalid JSON. The server encountered an error parsing the JSON text.   |
+| -32600 | Invalid Request  | The JSON sent is not a valid request object.                                               |
+| -32601 | Method not found | Method does not exist / is not available.                                                  |
+| -32602 | Invalid params   | Invalid method parameter(s).                                                               |
+| -32603 | Internal error   | Aurora RPC internal error.                                                                 |
+| -32500 | Response error   | Standard request error. Returned if no error code was defined.                             |
+
+Below are the API methods available for use in Launcher.
+
 ## Auth
 
 To work with the API on behalf of the launcher, you need to pass auth. To do this, you need to send an `auth` request with the following content:

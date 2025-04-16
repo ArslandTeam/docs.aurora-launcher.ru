@@ -32,23 +32,23 @@ List of useful commands:
 
 ## Starting via `systemd`
 
-Create a service configuration file and change the settings if necessary:
-```sh
-sudo nano /etc/systemd/system/launcher.service
-```
 Create a separate user to manage the Launcher Server:
 ```sh
-adduser launchserver --no-create-home --gecos ""
+adduser launchserver --system --group
 ```
 For everything to work correctly, you will need to grant the user rights to the folder:
 ```sh
 sudo chown launchserver:launchserver Path to the your Launcher Server
 ```
+Create a service configuration file and change the settings if necessary:
+```sh
+sudo nano /etc/systemd/system/launcher.service
+```
 
 File contents:
 ```systemd [launcher.service]
 [Unit]
-Description=launcher Server
+Description=LauncherServer
 
 [Service]
 # Specify the path where your Launcher Server is located
