@@ -1,8 +1,7 @@
 import { defineConfig } from "vitepress";
-import { navbar as nRu } from "./navbar/ru";
-import { navbar as nEn } from "./navbar/en";
-import { sidebar as sRu } from "./sidebar/ru";
-import { sidebar as sEn } from "./sidebar/en";
+import { ru } from "./ru/config";
+import { en } from "./en/config";
+import { search } from "./search";
 import lightbox from "vitepress-plugin-lightbox";
 import { groupIconMdPlugin, groupIconVitePlugin } from "vitepress-plugin-group-icons";
 
@@ -58,59 +57,25 @@ export default defineConfig ({
     plugins: [
       groupIconVitePlugin({
         customIcon: {
-          "windows": "https://www.svgrepo.com/show/331786/windows-azure.svg",
           "vanilla": "vscode-icons:file-type-minecraft",
+          "fabric": "https://raw.githubusercontent.com/FabricMC/community/cf5bd7950925e9ebe1fe039720c6a649671c10eb/media/unascribed/svg/fabric.svg",
           "quilt": "https://raw.githubusercontent.com/QuiltMC/quiltmc.org/00d94f12cd1161d3f252d477a52328a381ea4845/public/assets/img/logo.svg",
+          "forge": "https://raw.githubusercontent.com/MinecraftForge/Documentation/96af96778cb86597d43276b215bbe8fd65df5a71/forge_theme/images/safari-pinned-tab.svg",
           "neoforge": "https://raw.githubusercontent.com/neoforged/Documentation/refs/heads/main/static/img/logo.svg",
           "postgresql": "vscode-icons:file-type-pgsql",
           "mysql": "vscode-icons:file-type-mysql",
           "macos": "vscode-icons:file-type-applescript",
+          "windows": "https://www.svgrepo.com/show/331786/windows-azure.svg",
           "linux": "https://www.svgrepo.com/show/354004/linux-tux.svg",
           "http": "vscode-icons:file-type-nginx",
-          "forge": "https://raw.githubusercontent.com/MinecraftForge/Documentation/96af96778cb86597d43276b215bbe8fd65df5a71/forge_theme/images/safari-pinned-tab.svg",
-          "fabric": "https://raw.githubusercontent.com/FabricMC/community/cf5bd7950925e9ebe1fe039720c6a649671c10eb/media/unascribed/svg/fabric.svg",
-          "без домена": "vscode-icons:file-type-nginx",
-          "no domain": "vscode-icons:file-type-nginx",
-          ".service": "vscode-icons:file-type-dtd",
-          ".hjson": "vscode-icons:file-type-config",
+          "ipv4": "vscode-icons:file-type-nginx",
         },
       }),
     ],
   },
   locales: {
-    root: {
-      label: "Русский",
-      lang: "ru",
-      themeConfig: {
-        nav: nRu,
-        sidebar: sRu,
-        outlineTitle: "На этой странице",
-        docFooter: {
-          prev: "Предыдущая страница",
-          next: "Следующая страница",
-        },
-        lastUpdated: {
-          text: "Последнее обновление",
-        },
-        lightModeSwitchTitle: "Переключить на светлую тему",
-        darkModeSwitchTitle: "Переключить на тёмную тему",
-        sidebarMenuLabel: "Меню",
-        returnToTopLabel: "Наверх",
-        editLink: {
-          text: "Редактировать страницу",
-          pattern: "https://github.com/AuroraTeam/docs.aurora-launcher.ru/edit/dev/docs/:path",
-        },
-      },
-    },
-    en: {
-      label: "English",
-      lang: "en",
-      link: "/en/",
-      themeConfig: {
-        nav: nEn,
-        sidebar: sEn,
-      },
-    }
+    root: ru,
+    en: en
   },
   themeConfig: {
     logo: "/logo.svg",
@@ -136,30 +101,6 @@ export default defineConfig ({
     editLink: {
       pattern: "https://github.com/AuroraTeam/docs.aurora-launcher.ru/edit/dev/docs/:path",
     },
-    search: {
-      provider: "local",
-      options: {
-        detailedView: true,
-        locales: {
-          ru: {
-            translations: {
-              button: {
-                buttonText: "Поиск",
-              },
-              modal: {
-                displayDetails: "Детальный просмотр",
-                resetButtonTitle: "Сбросить поиск",
-                noResultsText: "Не найдено",
-                footer: {
-                  selectText: "Выбор",
-                  navigateText: "Навигация",
-                  closeText: "Закрыть",
-                },
-              },
-            },
-          },
-        },
-      },
-    },
+    search: search,
   },
 });
