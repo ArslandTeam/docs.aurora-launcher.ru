@@ -38,7 +38,7 @@ adduser launchserver --system --group
 ```
 For everything to work correctly, you will need to grant the user rights to the folder:
 ```sh
-sudo chown launchserver:launchserver Path to the your Launcher Server
+sudo chown -R launchserver:launchserver Path to the your Launcher Server
 ```
 Create a service configuration file and change the settings if necessary:
 ```sh

@@ -2,7 +2,7 @@
 layout: home
 hero:
   name: Aurora Launcher
-  tagline: Launcher with a user-friendly customization design for Minecraft gaming projects.
+  tagline: Archived documentation of the launcher with convenient design customization for Minecraft game projects
   image:
     src: /logo.svg
     alt: Aurora Launcher

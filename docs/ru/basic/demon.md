@@ -38,7 +38,7 @@ adduser launchserver --system --group
 ```
 Чтобы все работало корректно, вам потребуется выдать юзеру права на папку:
 ```sh
-sudo chown launchserver:launchserver Путь до вашей папки с Launcher Server
+sudo chown -R launchserver:launchserver Путь до вашей папки с Launcher Server
 ```
 Создаём файл конфигурации сервиса и при необходимости меняем настройки:
 ```sh
